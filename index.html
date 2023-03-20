@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>meeee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href='style.css' rel="stylesheet"></link>
+<script defer src="script.js"></script>
+</head>
+<body>
+<nav class="navigation">
+  <p class="welcome-message">Log in to get started</p>
+  <!-- <p>Good Day, </p> -->
+  <!-- <span class="welcome-name"></span> -->
+  <div class="container-logo">
+
+    <img class="img-logo" alt="logo" src="logo.png">
+  </div>
+  <form class="form-nav">
+    <input class="input input-user-name" type="text" name="username" placeholder="user" />
+  <input class="input input-password" type="text" placeholder="PIN" name="password">
+<button class="btn btn-login-submit" type="submit">&#8594</button>  
+</form>
+</nav>
+<main class="main hidden">
+  <div class="main-container">
+
+  <div class="container-current">
+    <p class="current-text">Current balance</p>
+    <p class="date">As of 07/03/2023, 18:02</p>
+  </div>
+
+  <p class="balance-number">000,00 €
+  </p>
+
+  <div class="container-movements">
+  <div class="row-movement">
+    <p class="transaction-type deposit"><span class="transaction-order">1</span> DEPOSIT</p>
+    <p class="transaction-date">08/03/2020</p>    
+    <p class="transaction-amount">1300,00 €</p>         
+  </div>
+  <div class="row-movement">
+    <p class="transaction-type deposit"><span class="transaction-order">1</span> DEPOSIT</p>
+    <p class="transaction-date">08/03/2020</p>    
+    <p class="transaction-amount">1300,00 €</p>         
+  </div>
+  </div>
+
+  <div class="container-actions">
+
+    <div class="action-form transfer-form"> 
+      <h2>Transfer Money</h2>
+      <form>
+        <div>
+          <input class="action-input" id="transfer-to" type="text" name="receiver"/>
+          <label class="action-label" for="transfer-to">Transfer to</label>
+        </div>
+          
+        <div>
+          <input class="action-input" id="transfer-amount" type="number" name="transferAmount">
+          <label class="action-label" for="transfer-amount">Amount</label>
+        </div>
+
+        <button class="btn action-btn transfer-btn" type="submit">&#8594</button>  
+      </form>
+    </div> 
+
+    <div class="action-form loan-form"> 
+      <h2>Request loan</h2>
+      <form>
+        <div>
+          <input class="action-input" id="loan-amount" type="number" name="loanAmount"/>
+          <label class="action-label" for="loan-amount">Amount</label>
+        </div>
+        <button class="btn action-btn loan-btn" type="submit">&#8594</button>  
+      </form>
+    </div>
+
+    <div class="action-form close-form">
+      <h2>Close account</h2>
+      <form>
+        <div>
+          <input class="action-input" id="current-user" type="text" name="currentUser"/>
+          <label class="action-label" for="current-user">Confirm user</label>
+        </div>
+        <div>
+          <input class="action-input" id="current-pin" type="text" name="currentPin">
+          <label class="action-label" for="current-pin">Confirm Pin</label>
+        </div>
+        <button class="btn action-btn close-btn" type="submit">&#8594</button>  
+      </form>
+    </div>
+  </div>
+
+  <div class="overview">
+    <div>
+      <span>IN</span> <span class="income green-amount">00,00 €</span>
+    </div>
+    <div >
+      <span>OUT</span> <span class="outcome red-amount">00,00 €</span>
+    </div>
+    <div>
+      <span>INTEREST</span> <span class="interest green-amount">000,00 €</span>
+    </div>
+    <button type="button" title="Sort movements" class="btn btn-sort">↓ SORT  </button>
+  </div>
+
+  <p class="timeout">
+    You will be logged out in <span class="time-left">00:00</span></p>
+  </div>
+</main>  
+</body>
+</html>
