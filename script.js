@@ -1,208 +1,210 @@
-'use strict';
+"use strict";
 /////////////////////////////////////////////////
 // BANKIST APP
 /////////////////////////////////////////////////
 // Data
 const account1 = {
-  owner: 'Jonas Schmedtmann',
+  owner: "Jonas Schmedtmann",
   interestRate: 1.2, // %
   pin: 1111,
   movements: [
     {
       amount: 200,
-      date: '2019-11-18T21:31:17.178Z',
+      date: "2019-11-18T21:31:17.178Z",
     },
     {
       amount: 450,
-      date: '2019-12-23T07:42:02.383Z',
+      date: "2019-12-23T07:42:02.383Z",
     },
     {
       amount: -400,
-      date: '2020-01-28T09:15:04.904Z',
+      date: "2020-01-28T09:15:04.904Z",
     },
     {
       amount: 3000,
-      date: '2020-04-01T10:17:24.185Z',
+      date: "2020-04-01T10:17:24.185Z",
     },
     {
       amount: -650,
-      date: '2020-05-08T14:11:59.604Z',
+      date: "2020-05-08T14:11:59.604Z",
     },
     {
       amount: -130,
-      date: '2023-03-05T17:01:12.194Z',
+      date: "2023-03-05T17:01:12.194Z",
       // date: '2020-05-27T17:01:17.194Z',
     },
     {
       amount: 70,
       // date: '2020-07-11T23:36:17.929Z',
-      date: '2023-03-06T23:36:17.929Z',
+      date: "2023-03-06T23:36:17.929Z",
     },
     {
       amount: 1300,
       // date: '2020-07-12T10:51:36.790Z',
-      date: '2023-03-08T10:51:36.790Z',
+      date: "2023-03-08T10:51:36.790Z",
     },
   ],
-  currency: 'EUR',
-  locale: 'pt-PT', // de-DE
+  currency: "EUR",
+  locale: "pt-PT", // de-DE
 };
 
 const account2 = {
-  owner: 'Jessica Davis',
+  owner: "Jessica Davis",
   interestRate: 1.5,
   pin: 2222,
   movements: [
     {
       amount: 5000,
-      date: '2019-11-01T13:15:33.035Z',
+      date: "2019-11-01T13:15:33.035Z",
     },
     {
       amount: 3400,
-      date: '2019-11-30T09:48:16.867Z',
+      date: "2019-11-30T09:48:16.867Z",
     },
     {
       amount: -150,
-      date: '2019-12-25T06:04:23.907Z',
+      date: "2019-12-25T06:04:23.907Z",
     },
     {
       amount: -790,
-      date: '2020-01-25T14:18:46.235Z',
+      date: "2020-01-25T14:18:46.235Z",
     },
     {
       amount: -3210,
-      date: '2020-02-05T16:33:06.386Z',
+      date: "2020-02-05T16:33:06.386Z",
     },
     {
       amount: -1000,
-      date: '2020-04-10T14:43:26.374Z',
+      date: "2020-04-10T14:43:26.374Z",
     },
     {
       amount: 8500,
-      date: '2020-06-25T18:49:59.371Z',
+      date: "2020-06-25T18:49:59.371Z",
     },
     {
       amount: -30,
-      date: '2020-07-26T12:01:20.894Z',
+      date: "2020-07-26T12:01:20.894Z",
     },
   ],
-  currency: 'USD',
-  locale: 'en-US',
+  currency: "USD",
+  locale: "en-US",
 };
 
 const account3 = {
-  owner: 'Steven Thomas Williams',
+  owner: "Steven Thomas Williams",
   interestRate: 0.7,
   pin: 3333,
 
   movements: [
     {
       amount: 200,
-      date: '2019-11-01T13:15:33.035Z',
+      date: "2019-11-01T13:15:33.035Z",
     },
     {
       amount: -200,
-      date: '2019-11-30T09:48:16.867Z',
+      date: "2019-11-30T09:48:16.867Z",
     },
     {
       amount: 340,
-      date: '2019-12-25T06:04:23.907Z',
+      date: "2019-12-25T06:04:23.907Z",
     },
     {
       amount: -300,
-      date: '2020-01-25T14:18:46.235Z',
+      date: "2020-01-25T14:18:46.235Z",
     },
     {
       amount: -20,
-      date: '2020-02-05T16:33:06.386Z',
+      date: "2020-02-05T16:33:06.386Z",
     },
     {
       amount: 50,
-      date: '2020-04-10T14:43:26.374Z',
+      date: "2020-04-10T14:43:26.374Z",
     },
     {
       amount: 400,
-      date: '2020-06-25T18:49:59.371Z',
+      date: "2020-06-25T18:49:59.371Z",
     },
     {
       amount: -460,
-      date: '2020-07-26T12:01:20.894Z',
+      date: "2020-07-26T12:01:20.894Z",
     },
   ],
-  currency: 'USD',
-  locale: 'en-US',
+  currency: "USD",
+  locale: "en-US",
 };
 
 const account4 = {
-  owner: 'Sarah Smith',
+  owner: "Sarah Smith",
   interestRate: 1,
   pin: 4444,
 
   movements: [
     {
       amount: 430,
-      date: '2019-11-01T13:15:33.035Z',
+      date: "2019-11-01T13:15:33.035Z",
     },
     {
       amount: 1000,
-      date: '2019-11-30T09:48:16.867Z',
+      date: "2019-11-30T09:48:16.867Z",
     },
     {
       amount: 700,
-      date: '2019-12-25T06:04:23.907Z',
+      date: "2019-12-25T06:04:23.907Z",
     },
     {
       amount: 50,
-      date: '2020-01-25T14:18:46.235Z',
+      date: "2020-01-25T14:18:46.235Z",
     },
     {
       amount: 90,
-      date: '2020-02-05T16:33:06.386Z',
+      date: "2020-02-05T16:33:06.386Z",
     },
   ],
-  currency: 'USD',
-  locale: 'en-US',
+  currency: "USD",
+  locale: "en-US",
 };
 
 const accounts = [account1, account2, account3, account4];
 
 // Elements
 /////////////////////////////////////////////////
-const inputLoginUsername = document.querySelector('.input-user-name');
-const inputLoginPin = document.querySelector('.input-password');
-const inputTransferTo = document.getElementById('transfer-to');
-const inputTransferAmount = document.getElementById('transfer-amount');
-const inputLoanAmount = document.getElementById('loan-amount');
-const inputCloseUsername = document.getElementById('current-user');
-const inputClosePin = document.getElementById('current-pin');
+const inputLoginUsername = document.querySelector(".input-user-name");
+const inputLoginPin = document.querySelector(".input-password");
+const inputTransferTo = document.getElementById("transfer-to");
+const inputTransferAmount = document.getElementById("transfer-amount");
+const inputLoanAmount = document.getElementById("loan-amount");
+const inputCloseUsername = document.getElementById("current-user");
+const inputClosePin = document.getElementById("current-pin");
 
-const btnLogin = document.querySelector('.btn-login-submit');
-const btnsort = document.querySelector('.btn-sort');
-const btnTransfer = document.querySelector('.transfer-btn');
-const btnLoan = document.querySelector('.loan-btn');
-const btnClose = document.querySelector('.close-btn');
+const btnLogin = document.querySelector(".btn-login-submit");
+const btnsort = document.querySelector(".btn-sort");
+const btnTransfer = document.querySelector(".transfer-btn");
+const btnLoan = document.querySelector(".loan-btn");
+const btnClose = document.querySelector(".close-btn");
 
-const welcomeMessageEl = document.querySelector('.welcome-message');
-const balanceEl = document.querySelector('.balance-number');
-const nowDateEl = document.querySelector('.date');
-const containerMovements = document.querySelector('.container-movements');
-const incomeEl = document.querySelector('.income');
-const outcomeEl = document.querySelector('.outcome');
+const welcomeMessageEl = document.querySelector(".welcome-message");
+const errorMsgEl = document.querySelector(".error-msg");
+const feedbackMsgEl = document.querySelector(".feedback-msg ");
+const balanceEl = document.querySelector(".balance-number");
+const nowDateEl = document.querySelector(".date");
+const containerMovements = document.querySelector(".container-movements");
+const incomeEl = document.querySelector(".income");
+const outcomeEl = document.querySelector(".outcome");
 // const interestEl = document.querySelector('.interest');
-const timerEl = document.querySelector('.time-left');
+const timerEl = document.querySelector(".time-left");
 /////////////////////////////////////////
 
 // Make User names
 const CreateUserNames = () => {
-  accounts.forEach(acc => {
-    const names = acc.owner.toLocaleLowerCase().split(' ');
-    acc.userName = '';
-    names.forEach(_name => (acc.userName += _name.slice(0, 1)));
+  accounts.forEach((acc) => {
+    const names = acc.owner.toLocaleLowerCase().split(" ");
+    acc.userName = "";
+    names.forEach((_name) => (acc.userName += _name.slice(0, 1)));
   });
 };
 const welcome = function () {
   welcomeMessageEl.textContent = `Good Day, ${currentUser.owner
-    .split(' ')
+    .split(" ")
     .slice(0, 1)} `;
 };
 CreateUserNames();
@@ -226,8 +228,8 @@ const formatMovementDate = function (date, locale) {
   };
   const daysPassed = calcDayPassed(new Date(), date);
 
-  if (daysPassed === 0) return 'Today';
-  if (daysPassed === 1) return 'Yesterday';
+  if (daysPassed === 0) return "Today";
+  if (daysPassed === 1) return "Yesterday";
   //  Within this week
   if (daysPassed <= 7) return `${daysPassed} days ago `;
 
@@ -244,7 +246,7 @@ const formatMovementDate = function (date, locale) {
 const displayMovements = function (userMovements) {
   // const userMovements = currentUser.movements;
   // let allMovementsHtml = [];
-  containerMovements.innerHTML = '';
+  containerMovements.innerHTML = "";
 
   userMovements.forEach(function (mov, i) {
     const movementDate = new Date(mov.date);
@@ -258,11 +260,11 @@ const displayMovements = function (userMovements) {
 
     // insertAdjacentText XX
     containerMovements.insertAdjacentHTML(
-      'afterbegin',
+      "afterbegin",
       `<div class="row-movement">
-    <p class="transaction-type ${mov.amount > 0 ? 'deposit' : 'withdraw'}">
+    <p class="transaction-type ${mov.amount > 0 ? "deposit" : "withdraw"}">
       <span class="transaction-order">${i + 1}</span> ${
-        mov.amount > 0 ? ' DEPOSIT' : ' WITHDRAWAL'
+        mov.amount > 0 ? " DEPOSIT" : " WITHDRAWAL"
       }</p>
     <p class="transaction-date">${formattedDate}</p>    
     <p class="transaction-amount">${movementValue}</p>         
@@ -285,11 +287,11 @@ const displayDateNow = function () {
   const now = new Date();
   const options = {
     // numeric // 2-digit // long
-    minute: 'numeric',
-    hour: 'numeric',
-    day: 'numeric',
-    month: 'numeric',
-    year: 'numeric',
+    minute: "numeric",
+    hour: "numeric",
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
   };
   nowDateEl.textContent = new Intl.DateTimeFormat(
     currentUser.locale,
@@ -325,28 +327,33 @@ const displaySummary = function (user) {
 };
 const formatCurrency = function (value, locale, currency) {
   return new Intl.NumberFormat(locale, {
-    style: 'currency',
+    style: "currency",
     currency,
   }).format(value);
 };
 const updateUi = function (user) {
-  document.querySelector('.main').classList.remove('hidden');
+  document.querySelector(".main").classList.remove("hidden");
   displayMovements(user.movements);
   displayBalance(user);
   displaySummary(user);
+  errorMsgEl.classList.add("feedback-hidden");
+  feedbackMsgEl.classList.add("feedback-hidden");
 };
 
 // Login
-btnLogin.addEventListener('click', function (e) {
+btnLogin.addEventListener("click", function (e) {
   //  prevent reload to reserve values
   e.preventDefault();
+  errorMsgEl.classList.add("feedback-hidden");
+  feedbackMsgEl.classList.add("feedback-hidden");
+  document.querySelector(".main").classList.add("hidden");
 
   const nameValue = inputLoginUsername.value;
   const pinValue = Number(inputLoginPin.value);
   if (nameValue && pinValue) {
     // Change CurrentUser variable
-    currentUser = accounts.find(acc => acc.userName === nameValue);
-    if (currentUser.pin === pinValue) {
+    currentUser = accounts.find((acc) => acc.userName === nameValue);
+    if (currentUser && currentUser.pin === pinValue) {
       updateUi(currentUser);
       welcome();
       displayDateNow();
@@ -355,36 +362,38 @@ btnLogin.addEventListener('click', function (e) {
       timer = beginLogoutTimer();
       // Change sorted to false
       sorted = false;
-      btnsort.classList.remove('sorted');
+      btnsort.classList.remove("sorted");
+    } else {
+      errorMsgEl.classList.remove("feedback-hidden");
     }
   }
 });
 
 // Sort movements
-btnsort.addEventListener('click', function () {
+btnsort.addEventListener("click", function () {
   if (!sorted) {
     const userMovements = currentUser?.movements
       ?.slice()
       .sort((mov1, mov2) => mov1.amount - mov2.amount);
     sorted = !sorted;
-    btnsort.classList.add('sorted');
+    btnsort.classList.add("sorted");
     displayMovements(userMovements);
   } else {
     displayMovements(currentUser?.movements);
     sorted = !sorted;
-    btnsort.classList.remove('sorted');
+    btnsort.classList.remove("sorted");
   }
 });
 
 // Transfer To
-btnTransfer.addEventListener('click', function (e) {
+btnTransfer.addEventListener("click", function (e) {
   e.preventDefault();
   const transferAmount = Number(inputTransferAmount.value);
   const receiverName = inputTransferTo.value;
-  const receiverAccount = accounts.find(acc => acc.userName == receiverName);
+  const receiverAccount = accounts.find((acc) => acc.userName == receiverName);
   //
-  inputTransferAmount.value = '';
-  inputTransferTo.value = '';
+  inputTransferAmount.value = "";
+  inputTransferTo.value = "";
 
   // check not -ve, <= your balance, not the current, receiver exists,
   if (
@@ -412,13 +421,13 @@ btnTransfer.addEventListener('click', function (e) {
 });
 
 // Request a loan
-btnLoan.addEventListener('click', function (e) {
+btnLoan.addEventListener("click", function (e) {
   e.preventDefault();
   const loanAmount = Number(inputLoanAmount.value);
-  inputLoanAmount.value = '';
+  inputLoanAmount.value = "";
   if (
     loanAmount > 0 &&
-    currentUser.movements.some(mov => mov.amount >= 0.1 * loanAmount)
+    currentUser.movements.some((mov) => mov.amount >= 0.1 * loanAmount)
   ) {
     // Reset Timer
     clearInterval(timer);
@@ -448,8 +457,8 @@ const beginLogoutTimer = function () {
 
     //  2- If 00:00 Logout , terminate the timer (do not make it still open in the background even after logout!)
     if (interval === 0) {
-      document.querySelector('.main').classList.add('hidden');
-      welcomeMessageEl.textContent = 'Log in to get started';
+      document.querySelector(".main").classList.add("hidden");
+      welcomeMessageEl.textContent = "Log in to get started";
       clearInterval(timer);
       return;
     }
@@ -465,18 +474,19 @@ const beginLogoutTimer = function () {
 };
 
 // Close Your Account
-btnClose.addEventListener('click', function (e) {
+btnClose.addEventListener("click", function (e) {
   e.preventDefault();
   const userName = inputCloseUsername.value;
   const userPin = Number(inputClosePin.value);
-  inputClosePin.value = inputCloseUsername.value = '';
+  inputClosePin.value = inputCloseUsername.value = "";
 
   if (userName === currentUser.userName && userPin === currentUser.pin) {
-    const index = accounts.findIndex(acc => acc === currentUser);
+    const index = accounts.findIndex((acc) => acc === currentUser);
     accounts.splice(index, 1);
     // hidden{opacity:0}
-    document.querySelector('.main').classList.add('hidden');
-    welcomeMessageEl.textContent = 'Log in to get started';
+    document.querySelector(".main").classList.add("hidden");
+    feedbackMsgEl.classList.remove("feedback-hidden");
+    welcomeMessageEl.textContent = "Log in to get started";
     // Terminate Timer
     clearInterval(timer);
   }

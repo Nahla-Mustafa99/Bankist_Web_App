@@ -7,7 +7,7 @@ html {
   font-size: 62.25%;
 }
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1;
@@ -79,6 +79,33 @@ body {
 }
 .btn-login-submit {
   font-size: 2rem;
+}
+.feedbacks {
+  text-align: center;
+  width: 60%;
+  margin: 6.4rem auto;
+  padding: 2.4rem 4.8rem;
+  border-radius: 1.2rem;
+  font-size: 2.4rem;
+  transition: all 0.3s;
+}
+.error-msg {
+  background-color: lightcoral;
+  color: darkred;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+.error-msg p:first-child {
+  font-weight: 600;
+}
+.feedback-hidden {
+  display: none;
+}
+.feedback-msg {
+  background-color: lightskyblue;
+  color: #fff;
+  font-weight: 600;
 }
 .main {
   opacity: 1;
@@ -327,6 +354,11 @@ body {
   .input {
     width: 10rem;
   }
+  .feedbacks {
+    width: 60%;
+    padding: 2rem 3rem;
+    border-radius: 1.2rem;
+  }
   .main-container {
     width: 95%;
   }
@@ -352,6 +384,10 @@ body {
 @media (max-width: 42em) {
   html {
     font-size: 50%;
+  }
+  .feedbacks {
+    margin: 8rem auto;
+    width: 75%;
   }
   .main-container {
     grid-template-columns: 1fr 1fr;
@@ -409,6 +445,10 @@ body {
   }
   .btn-login-submit {
     font-size: 1.6rem;
+  }
+  .feedbacks {
+    padding: 2rem 1rem;
+    font-size: 2.2rem;
   }
   .main-container {
     width: 90%;
