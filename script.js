@@ -188,7 +188,7 @@ const nowDateEl = document.querySelector('.date');
 const containerMovements = document.querySelector('.container-movements');
 const incomeEl = document.querySelector('.income');
 const outcomeEl = document.querySelector('.outcome');
-const interestEl = document.querySelector('.interest');
+// const interestEl = document.querySelector('.interest');
 const timerEl = document.querySelector('.time-left');
 /////////////////////////////////////////
 
@@ -316,12 +316,12 @@ const displaySummary = function (user) {
   );
   outcomeEl.textContent = formatCurrency(outcome, user.locale, user.currency);
 
-  const interest = userMovements
-    .filter(mov => mov.amount > 0)
-    .map(deposit => (deposit.amount * user.interestRate) / 100)
-    .filter(int => int >= 1)
-    .reduce((acc, int) => acc + int, 0);
-  interestEl.textContent = formatCurrency(interest, user.locale, user.currency);
+  // const interest = userMovements
+  //   .filter(mov => mov.amount > 0)
+  //   .map(deposit => (deposit.amount * user.interestRate) / 100)
+  //   .filter(int => int >= 1)
+  //   .reduce((acc, int) => acc + int, 0);
+  // interestEl.textContent = formatCurrency(interest, user.locale, user.currency);
 };
 const formatCurrency = function (value, locale, currency) {
   return new Intl.NumberFormat(locale, {
